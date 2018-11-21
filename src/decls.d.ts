@@ -1,3 +1,4 @@
 /* === Ignore === */
 
-// declare module "lib-name";
+declare module "*.vue";
+declare module "lodash.isequal";
