@@ -50,7 +50,7 @@ document.body.innerHTML = `
 
 ## Nested demo
 
-![](https://gyazo.com/0adabb600dd507db2ac02919ea23a02f)
+![](https://gyazo.com/0adabb600dd507db2ac02919ea23a02f.gif)
 
 ## How to dev
 
