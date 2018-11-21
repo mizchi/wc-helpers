@@ -1,50 +1,51 @@
-# Minfront
+# @mizchi/wc-helpers
 
-My minimum frontend boilerplate 201811
-
-- yarn
-- parcel
-- typescript
-- jest
-- netlify
-
-This code does **not** include framework, lint, ci, and other (production) tools.
-
-## Bootstrap
-
-```bash
-# ... Setup node and yarn
-$ git clone git@github.com:mizchi-sandbox/minfront.git --depth 1 myspa
-$ cd myspa
-$ git remote rm origin # optional
-$ yarn install
-$ yarn dev    # Start app server
-$ yarn build  # Build to dist
-$ yarn test   # Run jest
-$ yarn deploy # Deploy to netlify
-```
-
-## Optional: Rocommended tools
-
-- https://github.com/prettier/prettier
-- https://github.com/paulirish/pwmetrics
-- https://github.com/xavdid/typed-install
-- https://github.com/saadq/lynt (at first linting)
-
-## Advanced: Build your own project like minfront
-
-This project is based on my handy shell command.
+My experimental helpers
 
 ```
-$ mkdir app_name; cd app_name
-$ yarn init -y; git init; gibo dump Node > .gitignore; yarn add typescript -D; yarn tsc --init
+yarn add @mizchi/wc-helpers
 ```
 
-Optional: Replace `{app_name}` to `your-app-name` and remove README so far.
+## Examples
 
----
+```tsx
+// Plain React Component
+import React from "react";
+class MyReactApp extends React.PureComponent<{ a: string }> {
+  render() {
+    return React.createElement("p", null, `react: ${this.props.a}`);
+  }
+}
 
-# {app_name}
+// Plain Vue Component
+import Vue from "vue";
+import Component from "vue-class-component";
+@Component({
+  props: ["a"]
+})
+class MyVueApp extends Vue {
+  render(h) {
+    return h("p", `vue: ${this.$props.a}`);
+  }
+}
+
+// register
+import {
+  vueElementFactory,
+  reactElementFactory,
+  encodeProps
+} from "<this code>";
+customElements.define("my-react-component", reactElementFactory(MyReactApp));
+customElements.define("my-vue-component", vueElementFactory(MyVueApp));
+
+// run
+const state = { a: 0 };
+const encoded = encodeProps(state);
+document.body.innerHTML = `
+  <my-react-component data-props="${encoded}"></my-react-component>
+  <my-vue-component data-props="${encoded}"></my-vue-component>
+`;
+```
 
 ## How to dev
 
