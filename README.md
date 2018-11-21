@@ -6,9 +6,15 @@ My experimental helpers
 yarn add @mizchi/wc-helpers
 ```
 
-## Examples
+## Example
 
 ```tsx
+import {
+  vueElementFactory,
+  reactElementFactory,
+  encodeProps
+} from "@mizchi/wc-helpers";
+
 // Plain React Component
 import React from "react";
 class MyReactApp extends React.PureComponent<{ a: string }> {
@@ -30,11 +36,6 @@ class MyVueApp extends Vue {
 }
 
 // register
-import {
-  vueElementFactory,
-  reactElementFactory,
-  encodeProps
-} from "<this code>";
 customElements.define("my-react-component", reactElementFactory(MyReactApp));
 customElements.define("my-vue-component", vueElementFactory(MyVueApp));
 
@@ -47,12 +48,13 @@ document.body.innerHTML = `
 `;
 ```
 
+## Nested demo
+
+![](https://gyazo.com/0adabb600dd507db2ac02919ea23a02f)
+
 ## How to dev
 
-- `yarn dev`: Start application server on `http://localhost:1234`
-- `yarn build`: Generate `dist`
-- `yarn test`: Run jest
-- `yarn deploy`: Deploy to netlify (need netlify account)
+- `yarn build`: Generate `index.js`
 
 ## LICENSE
 
