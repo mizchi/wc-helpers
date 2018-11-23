@@ -2,6 +2,8 @@
 
 My experimental helpers
 
+CAUTION: ES2015 only
+
 ```
 yarn add @mizchi/wc-helpers
 ```

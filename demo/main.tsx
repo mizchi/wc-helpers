@@ -1,7 +1,11 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import React from "react";
-import { vueElementFactory, reactElementFactory, encodeProps } from "..";
+import {
+  vueElementFactory,
+  reactElementFactory,
+  encodeProps
+} from "../index.ts";
 
 // Vue
 @Component({
